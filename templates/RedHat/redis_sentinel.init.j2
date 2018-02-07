@@ -18,7 +18,7 @@ fi
 REDIS_USER={{ redis_user }}
 BIND_ADDRESS={{ redis_sentinel_bind }}
 PIDFILE={{ redis_sentinel_pidfile }}
-CONF="/etc/redis/sentinel_${SENTINEL_PORT}.conf"
+CONF="{{ redis_conf_dir }}/sentinel_${SENTINEL_PORT}.conf"
 EXEC={{ redis_install_dir }}/bin/redis-server
 CLIEXEC="{{ redis_install_dir }}/bin/redis-cli -p ${SENTINEL_PORT}"
 

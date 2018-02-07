@@ -14,7 +14,7 @@ CLIEXEC={{ redis_install_dir }}/bin/redis-cli
 {% endif %}
 
 PIDFILE={{ redis_sentinel_pidfile }}
-CONF="/etc/redis/sentinel_${SENTINEL_PORT}.conf"
+CONF="{{ redis_conf_dir }}/sentinel_${SENTINEL_PORT}.conf"
 
 case "$1" in
     start)

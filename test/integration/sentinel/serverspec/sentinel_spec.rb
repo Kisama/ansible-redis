@@ -10,7 +10,7 @@ describe 'Redis' do
     it { should be_listening.on('0.0.0.0').with('tcp') }
   end
 
-  describe file('/etc/redis/sentinel_26379.conf') do
+  describe file('{{ redis_conf_dir }}/sentinel_26379.conf') do
     it { should be_file }
     it { should be_owned_by 'redis' }
     its(:content) { should match /port 26379/ }

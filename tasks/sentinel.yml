@@ -6,6 +6,13 @@
     recurse: yes
     owner: "{{ redis_user }}"
 
+- name: create redis conf directory
+  file:
+    path: "{{ redis_conf_dir }}"
+    state: directory
+    recurse: yes
+    owner: "{{ redis_user }}"
+
 - name: create sentinel init script
   template:
     src: "{{ item }}"
@@ -104,7 +111,7 @@
 - name: create sentinel config file
   template:
     src: redis_sentinel.conf.j2
-    dest: /etc/redis/sentinel_{{ redis_sentinel_port }}.conf
+    dest: "{{ redis_conf_dir }}/sentinel_{{ redis_sentinel_port }}.conf"
     owner: "{{ redis_user }}"
     mode: 0640
   notify: "restart sentinel {{ redis_sentinel_port }}"

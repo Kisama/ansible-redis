@@ -1,0 +1,23 @@
+[redis-master]
+192.168.10.119
+
+[redis-slave]
+192.168.10.124
+
+[redis-sentinel]
+192.168.10.124 redis_sentinel=True
+
+[redis-master:vars]
+ansible_connection=ssh
+ansible_user=actmember
+ansible_ssh_user=actmember
+
+[redis-slave:vars]
+ansible_connection=ssh
+ansible_user=actmember
+ansible_ssh_user=actmember
+
+[redis-sentinel:vars]
+ansible_connection=ssh
+ansible_user=actmember
+ansible_ssh_user=actmember

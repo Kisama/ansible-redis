@@ -25,7 +25,7 @@ PIDFILE={{ redis_sentinel_pidfile }}
 PIDFILE_DIR=$(dirname "${PIDFILE}")
 
 REDIS_USER={{ redis_user }}
-CONF="/etc/redis/sentinel_${SENTINEL_PORT}.conf"
+CONF="{{ redis_conf_dir }}/sentinel_${SENTINEL_PORT}.conf"
 CLIEXEC="{{ redis_install_dir }}/bin/redis-cli -p ${SENTINEL_PORT}"
 
 if [ -r /etc/default/sentinel_${SENTINEL_PORT} ]; then
