@@ -5,13 +5,7 @@
     state: directory
     recurse: yes
     owner: "{{ redis_user }}"
-
-- name: create redis conf directory
-  file:
-    path: "{{ redis_conf_dir }}"
-    state: directory
-    recurse: yes
-    owner: "{{ redis_user }}"
+    group: "{{ redis_group }}"
 
 - name: create redis init script
   template:

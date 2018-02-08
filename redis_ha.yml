@@ -1,0 +1,21 @@
+- name: configure the master redis server
+  hosts: redis-master
+  become: yes
+  roles:
+    - ../ansible-redis
+
+- name: configure redis slaves
+  strategy: debug
+  hosts: redis-slave
+  become: yes
+  roles:
+    - ../ansible-redis
+
+- name: configure redis sentinel nodes
+  strategy: debug
+  hosts: redis-sentinel
+  become: yes
+  vars:
+    - redis_sentinel: true
+  roles:
+    - ../ansible-redis

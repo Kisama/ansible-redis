@@ -9,4 +9,5 @@ if [ $? -ne 0 ] ; then
     exit 1
 fi
 
-ansible-playbook -i $inventory_file site.yml --key-file=$key_file --ask-become-pass
+ansible-playbook -v -i $inventory_file redis_ha.yml --key-file=$key_file --ask-become-pass
+
